@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  express_server:
+    build: .
+    ports:
+      - 3000:3000
+    container_name: express_server
+    restart: unless-stopped
+    volumes:
+      - ./:/work
+      - /work/node_modules
+    depends_on:
+      - sql_db
+
+  sql_db:
+    image: mysql:8.0.25
+    container_name: sql_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    volumes:
+      - sql_db_data:/var/lib/mysql
+
+volumes:
+  sql_db_data:
+    driver: local
