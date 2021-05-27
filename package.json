@@ -5,7 +5,8 @@
   "scripts": {
     "lint": "npx eslint ./src/app --ext .js,.ts",
     "docker": "docker compose up -d --build",
-    "start": "ts-node src/app/server.ts"
+    "start": "ts-node src/app/server.ts",
+    "nodemon": "nodemon -L src/app/server.ts"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",

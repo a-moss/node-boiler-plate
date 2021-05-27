@@ -2,9 +2,10 @@ import * as express from 'express';
 import { Sequelize } from 'sequelize-typescript';
 import { validationResult } from 'express-validator';
 import { basename, join, parse } from 'path';
-import dotenv from 'dotenv';
-import glob from 'glob';
+import * as dotenv from 'dotenv';
+import * as glob from 'glob';
 import { CustomRoute, RouteHandler, Routes } from './Data/auth.data';
+import './environment';
 
 dotenv.config();
 
