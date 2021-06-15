@@ -6,6 +6,7 @@ import * as dotenv from 'dotenv';
 import * as glob from 'glob';
 import { CustomRoute, RouteHandler, Routes } from './Data/auth.data';
 import './environment';
+import { AppConfig } from '../config/app';
 
 dotenv.config();
 
@@ -63,7 +64,7 @@ function addRouteGroup(
  * @param globalRoutePrefix
  */
 function loadRoutes(globalRoutePrefix: string = '') {
-  glob.sync(`${__dirname}/Routes/*.ts`).map((file: string) => {
+  glob.sync(`${__dirname}${AppConfig.routes.locationGlob}}`).map((file: string) => {
     // Returns file path without extension
     const parsedFile = parse(file);
     return join(parsedFile.dir, parsedFile.name);
@@ -89,7 +90,7 @@ function loadRoutes(globalRoutePrefix: string = '') {
     });
 }
 
-loadRoutes('/v1');
+loadRoutes(AppConfig.routes.globalPrefix);
 
 app.get('/', (req: express.Request, res: express.Response) => {
   res.send({

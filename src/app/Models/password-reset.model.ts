@@ -1,5 +1,5 @@
 import {
-  Table, Column, Model, DataType,
+  Table, Column, Model,
 } from 'sequelize-typescript';
 
 @Table({
@@ -7,12 +7,12 @@ import {
   tableName: 'password_resets',
 })
 export default class PasswordReset extends Model {
-  @Column(DataType.STRING)
+  @Column
   email: string;
 
-  @Column(DataType.STRING)
+  @Column
   token: string;
 
-  @Column(DataType.DATE)
+  @Column
   expiresAt: number;
 }

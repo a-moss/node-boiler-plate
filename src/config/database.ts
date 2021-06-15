@@ -1,4 +1,4 @@
-// This config.js is called with the CLI, so the dotenv load is required here since the app bootstrap won't be called
+// This database.js is called with the CLI, so the dotenv load is required here since the app bootstrap won't be called
 require('dotenv').config();
 
 const credentials = {
