@@ -20,7 +20,7 @@ const _ = new Sequelize({
   database: process.env.DB_DATABASE,
   host: process.env.DB_HOST,
   dialect: 'mysql',
-  models: [`${__dirname}/models`],
+  models: [`${__dirname}/app/Models`],
   modelMatch: (filename, member) => filename.substring(0, filename.indexOf('.model')) === member.toLowerCase(),
 });
 
