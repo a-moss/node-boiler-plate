@@ -1,5 +1,5 @@
 import { AuthController } from '../Http/Controllers/auth.controller';
-import { CustomRoute, Routes } from '../Data/auth.data';
+import { CustomRoute, Routes } from '../Data/routes.data';
 import { exampleMiddleware } from '../Http/Middleware/example.middleware';
 
 const authController = new AuthController();
